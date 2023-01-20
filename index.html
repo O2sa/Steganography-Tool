@@ -1,33 +1,64 @@
-
-<html> 
-  <head> 
-    <meta charset="UTP-8"/>
-    <title>This is pugjs page </title>
-    <link rel="stylesheet" href="css/main.css"/>
+<html>
+  <head>
+    <meta charset="UTP-8" />
+    <title>Stegnaography Tool</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="steganography.min.js"></script>
   </head>
-  <body> 
-    <div class="section"> 
+  <body>
+    <div class="section">
       <div class="container">
-        <div class="header"> 
-          <h1>Stegnaography Tool </h1>
+        <div class="header">
+          <h1>Stegnaography Tool</h1>
         </div>
-        <div class="hide-data"> 
+        <div class="hide-data">
           <h2>Hide Data</h2>
-          <input class="cover-file" type="file" name="cover"/>
-          <textarea class="hide-msg" id="hide-msg" name="msg" rows="4" cols="50"></textarea>
-          <input class="hide-btn" type="button" value="Hide"/><span class="down-btn">Download!</span>
+          <input
+            name="pic"
+            accept="image/*"
+            onchange="readURL(this);"
+            class="cover-file"
+            type="file"
+            name="cover"
+          />
+          <textarea
+            placeholder="Enter a text to hide it"
+            id="text"
+            class="hide-msg"
+          ></textarea>
+          <input
+            class="hide-btn"
+            type="button"
+            value="Hide"
+            onclick="hideText()"
+          />
+          <div class="img-cont">
+            <div class="">
+              <h5>Message Encoded Image</h5>
+              <img id="image2" src="" alt="" />
+            </div>
+          </div>
         </div>
-        <hr/>
-        <div class="extract-data"> 
+        <hr />
+        <div class="extract-data">
           <h2>Extract Data</h2>
-          <input class="cover-file" type="file" name="cover"/>
-          <div class="extracted-msg"> </div>
-          <input class="show-btn" type="button" value="Show"/>
+          <input
+            class="cover-file"
+            type="file"
+            name="cover"
+            onchange="decode(this);"
+          />
+          <h3>Your hidden information:</h3>
+          <div id="decoded" class="extracted-msg"></div>
         </div>
-        <div class="footer">Created By Osama </div>
+        <div class="footer">
+          Created By
+          <a target="_blank" href="https://github.com/O2sa"
+            ><span class="my-acc">Osama</span></a
+          >
+        </div>
       </div>
     </div>
-    <script src="js/main.js"></script>
-    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
